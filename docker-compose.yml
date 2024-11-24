@@ -1,0 +1,19 @@
+services:
+  app:
+    build: ./e-commerce
+    volumes:
+      - ./e-commerce:/e-commerce
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongo
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - DJANGO_SETTINGS_MODULE=Ecommerce.settings
+
+  mongo:
+    image: mongo:6.0
+    volumes:
+      - ./datos:/data/db
+    ports:
+      - 27017:27017

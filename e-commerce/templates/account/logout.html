@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div class="d-flex flex-column justify-content-center m-4 fs-5">
+  <div class="d-flex justify-content-center">
+    <p>¿Seguro que quieres cerrar sesión?</p>
+  </div>
+  <div class="d-flex justify-content-center">
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      <input type="submit" value="Sí, Salir" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

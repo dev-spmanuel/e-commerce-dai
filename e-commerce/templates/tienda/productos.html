@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}{{productos.0.4 | upper}}{% endblock %}
+
+{% block contenido %}
+{% load static %}
+
+<h1 class="d-flex justify-content-center">{{productos.0.4 | upper}}</h1>
+<div class="row">
+  {% for producto in productos %}
+  <div class="col-sm-4">
+    <div class="card m-3" style="width: 20rem;">
+      <img src="{% static producto.3 %}" class="card-img-top" alt="{{producto.3}}" />
+      <div class="card-body">
+        <h5 class="card-title">{{producto.0}}</h5>
+        <span class="card-subtitle text-body-emphasis fs-4">💲{{ producto.2 }}</span>
+        <p class="card-text mt-2">{{ producto.1 }}</p>
+        <span class="sp" data-id="{{ producto.5 }}" data-valoracion="{{ producto.6 }}"
+          data-votos="{{ producto.7 }}"></span>
+        {% if producto.6 %}
+        <p class="card-text">Votos: {{ producto.7 }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  // se ejecuta recien cargada la página
+  document.addEventListener('DOMContentLoaded', () => {
+    // donde se inyecte el código html
+    const span_para_estrellas = document.querySelectorAll('span.sp')
+
+    span_para_estrellas.forEach((ele) => {   // arrow function
+      // comillas hacia atrás: es6 multiline
+      const valoracion = parseInt(ele.getAttribute('data-valoracion'))
+
+      let estrellasHTML = ''
+      for (let i = 0; i < 5; i++) {
+        if (i < valoracion) {
+          estrellasHTML += '<span class="fa fa-star text-warning"></span>'
+        } else {
+          estrellasHTML += '<span class="fa fa-star text-muted"></span>'
+        }
+      }
+
+      ele.innerHTML = estrellasHTML
+      // conectar con el api para recoger el rating y ponerlo
+      const estrellas = ele.querySelectorAll('span.fa-star')
+
+      estrellas.forEach((star, index) => {
+        star.addEventListener('click', () => {
+          let votos = parseInt(ele.getAttribute('data-votos'))
+          console.log(votos)
+          if (isNaN(votos)) {
+            votos = 0
+          }
+
+          const valoracionClick = index + 1
+          const productoId = ele.getAttribute('data-id')
+
+          let config = {
+            headers: {
+              'Authorization': 'Bearer ' + 'supersecret'
+            }
+          }
+          axios.post(`http://localhost:8000/api/producto/${productoId}/rate`,
+            {
+              rate: valoracionClick,
+              count: votos + 1
+            },
+            config,
+          )
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+          // recargar pagina
+          location.reload()
+        })
+      })
+    })
+  })
+</script>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}HOME{% endblock %}
+
+{% block contenido %}
+
+<div class="d-flex flex-column">
+  <div class="d-flex flex-row justify-content-between mt-5 mb-5">
+    <div class="card ms-3 me-3 mb-3" style="width: 25rem;">
+      <img src="../../static/img/mens_clothing.jpg" class="card-img-top" alt="mens clothing">
+      <div class="card-body">
+        <h5 class="card-title">Men's Clothing</h5>
+        <a href="./mens_clothing" class="btn btn-primary">Ver productos</a>
+      </div>
+    </div>
+    <div class="card ms-3 me-3 mb-3" style="width: 25rem;">
+      <img src="../../static/img/womens_clothing.jpg" class="card-img-top" alt="womens clothing">
+      <div class="card-body">
+        <h5 class="card-title">Women's Clothing</h5>
+        <a href="./womens_clothing" class="btn btn-primary">Ver productos</a>
+      </div>
+    </div>
+    <div class="card ms-3 me-3 mb-3" style="width: 25rem;">
+      <img src="../../static/img/electronics.jpg" class="card-img-top" alt="electronics">
+      <div class="card-body">
+        <h5 class="card-title">Electronics</h5>
+        <a href="./electronics" class="btn btn-primary">Ver productos</a>
+      </div>
+    </div>
+    <div class="card ms-3 me-3 mb-3" style="width: 25rem;">
+      <img src="../../static/img/jewelery.jpg" class="card-img-top" alt="jewelery">
+      <div class="card-body">
+        <h5 class="card-title">Jewelery</h5>
+        <a href="./jewelery" class="btn btn-primary">Ver productos</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
