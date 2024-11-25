@@ -1,4 +1,4 @@
-# 🛒 E-commerce-dai
+# 🛒 E-commerce DAI
 Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para Internet.
 
 ### Instalación local
