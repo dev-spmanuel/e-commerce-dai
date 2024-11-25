@@ -2,6 +2,9 @@
 Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para Internet.
 
 ### Instalación local
+> [!IMPORTANT]
+> Ya que la aplicación se ejecuta en contenedores de Docker, es necesario tenerlo [instalado](https://docs.docker.com/engine/install/).
+
 Para iniciar la aplicación clona el repositorio y ejecuta:
 ```bash
 $ make up
