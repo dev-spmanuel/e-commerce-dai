@@ -17,3 +17,13 @@ services:
       - ./datos:/data/db
     ports:
       - 27017:27017
+
+  restore:
+    image: mongo:6.0
+    volumes:
+      - ./backups:/backups
+      - ./e-commerce:/e-commerce
+      - ./backup_restore.sh:/backup_restore.sh
+    depends_on:
+      - mongo
+    entrypoint: [ "sh", "/backup_restore.sh" ]
