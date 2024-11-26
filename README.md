@@ -1,10 +1,16 @@
 # 🛒 E-commerce DAI
 Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para Internet.
 
-## Características de la API
+## Caraterísticas principales
+- Visualización de los distintos productos de la tienda online divididos en cuatro categorías.
+- Permite la búsqueda de productos en la tienda.
+- Añadir un producto nuevo a una de las distintas categorías.
+- Inicio de sesión / Registro.
+
+## Características de la API de productos
 - Obtener todos los productos
 - Obtener un producto
-- Crear productos nuevos
+- Crear un producto nuevo
 - Actualizar un produto
 - Eliminar un producto
 - Puntuar un producto con una nota desde 1 estrella hasta 5 estrellas
