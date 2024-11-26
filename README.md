@@ -1,5 +1,5 @@
 # 🛒 E-commerce DAI
-Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para Internet.
+Repositorio del proyecto web de la asignatura Desarrollo de Aplicaciones para Internet.
 
 ## ✨ Caraterísticas principales
 - Visualización de los distintos productos de la tienda online divididos en cuatro categorías.
