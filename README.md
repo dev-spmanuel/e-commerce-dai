@@ -1,6 +1,14 @@
 # 🛒 E-commerce DAI
 Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para Internet.
 
+## Características de la API
+- Obtener todos los productos
+- Obtener un producto
+- Crear productos nuevos
+- Actualizar un produto
+- Eliminar un producto
+- Puntuar un producto con una nota desde 1 estrella hasta 5 estrellas
+
 ## Instalación local
 > [!IMPORTANT]
 > Ya que la aplicación se ejecuta en contenedores de Docker, es necesario tenerlo [instalado](https://docs.docker.com/engine/install/).
