@@ -8,12 +8,16 @@ import json
 import logging
 logger = logging.getLogger(__name__)
 
+TAGS = {
+  "productos": ["PRODUCTOS"]
+}
+
 class GlobalAuth(HttpBearer):
   def authenticate(self, request, token):
     if token == "supersecret":
       return token
 
-api = NinjaExtraAPI()
+api = NinjaExtraAPI(title="E-commerce API", version="1.0.0", description="API de la tienda DAI")
 # api = NinjaExtraAPI(auth=GlobalAuth())
 
 tienda = connect()
@@ -40,24 +44,24 @@ class ProductSchemaIn(Schema):
 class ErrorSchema(Schema):
   message: str
 
-@api.get('/producto', tags=['TIENDA DAI'])
+@api.get('/producto', tags=TAGS["productos"])
 def get_products(request, desde: int = 0, hasta: int = 100):
   products = productos_collection.find().skip(desde).limit(hasta-desde)
   products_list = [{**product, '_id': str(product['_id'])} for product in products]
   return list(products_list)
 
-@api.get('/producto/{id}', tags=['TIENDA DAI'])
+@api.get('/producto/{id}', tags=TAGS["productos"])
 def get_product(request, id: str):
   product = productos_collection.find_one({'_id': ObjectId(id)})
   return {**product, '_id': str(product['_id'])}
 
-@api.post('/producto', tags=['TIENDA DAI'])
+@api.post('/producto', tags=TAGS["productos"])
 def create_product(request, payload: ProductSchemaIn):
   payload_dict = payload.dict()
   id = str(productos_collection.insert_one(payload_dict).inserted_id)
   return "id: " + id
 
-@api.put('/producto/{id}', tags=['TIENDA DAI'], response={202: ProductSchema, 400:ErrorSchema, 404: ErrorSchema})
+@api.put('/producto/{id}', tags=TAGS["productos"], response={202: ProductSchema, 400:ErrorSchema, 404: ErrorSchema})
 def update_product(request, id: str, payload: ProductSchemaIn):
   try:
     updated_product = productos_collection.find_one_and_update(
@@ -72,12 +76,12 @@ def update_product(request, id: str, payload: ProductSchemaIn):
   except:
     return 404, {'message': 'no encontrado'}
 
-@api.delete('/producto/{id}', tags=['TIENDA DAI'])
+@api.delete('/producto/{id}', tags=TAGS["productos"])
 def delete_product(request, id: str):
   deleted = str(productos_collection.delete_one({'_id': ObjectId(id)}).deleted_count)
   return ("borrados: " + deleted)
 
-@api.post('/producto/{id}/rate', tags=['TIENDA DAI'], response={202: ProductSchema})
+@api.post('/producto/{id}/rate', tags=TAGS["productos"], response={202: ProductSchema})
 def rate_product(request, id: str, rate: Rate):
   updated_product = productos_collection.find_one_and_update(
     {'_id': ObjectId(id)},
