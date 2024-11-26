@@ -1,13 +1,13 @@
 # 🛒 E-commerce DAI
 Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para Internet.
 
-## Caraterísticas principales
+## ⚙️ Caraterísticas principales
 - Visualización de los distintos productos de la tienda online divididos en cuatro categorías.
 - Permite la búsqueda de productos en la tienda.
 - Añadir un producto nuevo a una de las distintas categorías.
 - Inicio de sesión / Registro.
 
-## Características de la API de productos
+## 🔧 Características de la API de productos
 - Obtener todos los productos
 - Obtener un producto
 - Crear un producto nuevo
@@ -15,7 +15,7 @@ Repositorio del projecto web de la asignatura Desarrollo de Aplicaciones para In
 - Eliminar un producto
 - Puntuar un producto con una nota desde 1 estrella hasta 5 estrellas
 
-## Instalación local
+## 🖥️ Instalación local
 > [!IMPORTANT]
 > Ya que la aplicación se ejecuta en contenedores de Docker, es necesario tenerlo [instalado](https://docs.docker.com/engine/install/).
 
