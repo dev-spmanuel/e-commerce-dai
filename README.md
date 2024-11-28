@@ -15,6 +15,12 @@ Repositorio del proyecto web de la asignatura Desarrollo de Aplicaciones para In
 - 🗑️ Eliminar un producto
 - 🌟 Puntuar un producto con una nota desde 1 estrella hasta 5 estrellas
 
+## 🛠️ Tecnologías usadas
+- ⚙️ **Backend**: Python/[Django](https://www.djangoproject.com/)
+- 🖌️ **Frontend**: React + [Bootstrap](https://getbootstrap.com/)
+- 🗄️ **Base de datos**: MongoDB
+- 🔗 **API REST**: [Django Ninja](https://django-ninja.dev/)
+
 ## 🖥️ Instalación local
 > [!IMPORTANT]
 > Ya que la aplicación se ejecuta en contenedores de Docker, es necesario tenerlo [instalado](https://docs.docker.com/engine/install/).
